@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 conectDB()  //Estamos ejecutando el modulo de nuestra conexion a la base de datos
 
 require('./routes/user')(app)
+require('./routes/genre')(app)  // este app es la del objeto express
 
 app.listen(3000, () => {
     console.log(' se levanto correctamente.')
