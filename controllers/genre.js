@@ -20,7 +20,7 @@ exports.create = (req, res) => {
 
     genre.save()
     .then(
-        (datagenre) => {
+        (datagenre) => {    // Esto es un colback
             res.send(datagenre)
         }
     ).catch(
@@ -30,4 +30,36 @@ exports.create = (req, res) => {
             })
         }
     )
+}
+/**
+ * Metodo para modificar generos
+ * @param {*} req 
+ * @param {*} res 
+ */
+exports.update = (req, res) => {
+    if(Object.entries(req.body).length == 0) {
+        return res.status(400).send({
+            message: 'Todos los campos son obligatorios'
+        })
+    }
+
+    const genre = {
+        name: req.body.name,
+        status: req.body.status
+    }
+
+    GenreModel.findByIdAndUpdate(req.params.id, genre, {new: true})
+    .then(
+        (genreUpdate) => {
+            res.send(genreUpdate)
+        }
+    )
+    .catch(
+        (error) => {
+            return res.status(500).send({
+                message: error.message
+            })
+        }
+    )
+
 }

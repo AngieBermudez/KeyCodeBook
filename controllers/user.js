@@ -66,7 +66,7 @@ exports.update = (req, res) => {
      * - El id usuario. => req.params.id es el id que se envia por la url
      * - los datos nuevos
      */
-    UserModel.findByIdAndUpdate(req.params.id, user)
+    UserModel.findByIdAndUpdate(req.params.id, user, {new: true})
     .then(
         (userUpdate) => {
             res.send(userUpdate)
