@@ -63,3 +63,54 @@ exports.update = (req, res) => {
     )
 
 }
+
+/**
+ * Metodo para listar todos los generos que estan en la plataforma.
+ * @param {*} req => Todo lo que se recibe.
+ * @param {*} res => respuesta que se devuelve.
+ */
+exports.getAll = (req, res) => {
+    GenreModel.find()        
+        .then((genre) => res.send(genre))
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+/**
+ * Metodo para obtener un genero por el id
+ * @param {*} req => Todo lo que recibe
+ * @param {*} res => Respuesta que se devuelve
+ */
+exports.getOne = (req, res) => {
+    GenreModel.findById(req.params.id)        
+        .then((genre) => { res.send(genre) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+/**
+ * Metodo para eliminar un genero por el id
+ * @param {*} req => Todo lo que se recibe
+ * @param {*} res => Respuesta que se devuelve
+ */
+exports.deleteOne = (req, res) => {
+    GenreModel.findByIdAndRemove(req.params.id)
+        .then((genre) => { res.send(genre) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+}

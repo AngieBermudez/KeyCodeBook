@@ -77,7 +77,56 @@ exports.update = (req, res) => {
                 message: error.message
             })
         }
-    )
+    )    
+}
 
-    
+/**
+ * Metodo para listar todos los usuarios que estan en la plataforma.
+ * @param {*} req => Todo lo que se recibe.
+ * @param {*} res => respuesta que se devuelve.
+ */
+exports.getAll = (req, res) => {
+    UserModel.find()        
+        .then((users) => {res.send(users) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+/**
+ * Metodo para obtener un usuario por el id
+ * @param {*} req => Todo lo que recibe
+ * @param {*} res => Respuesta que se devuelve
+ */
+exports.getOne = (req, res) => {
+    UserModel.findById(req.params.id)        
+        .then((user) => { res.send(user) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
+
+}
+/**
+ * Metodo para eliminar un usuario por el id
+ * @param {*} req => Todo lo que se recibe
+ * @param {*} res => Respuesta que se devuelve
+ */
+exports.deleteOne = (req, res) => {
+    UserModel.findByIdAndRemove(req.params.id)
+        .then((user) => { res.send(user) })
+        .catch(
+            (error) => {
+                res.status(500).send({
+                    message: error.message
+                })
+            }
+        )
 }
