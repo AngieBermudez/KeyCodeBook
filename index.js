@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const { conectDB } = require('./db')
+const port = process.env.PORT || 3000
 const app = express()   //SE CONVIERTE LA VARIABLE EXPRESS EN UN OBJETO, POR EL CULA VAMOS A PODER TRABAJAR.
 
 app.use(cors())
@@ -14,6 +15,6 @@ require('./routes/user')(app)
 require('./routes/genre')(app)  // este app es la del objeto express
 require('./routes/book')(app)
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(' se levanto correctamente.')
 })
