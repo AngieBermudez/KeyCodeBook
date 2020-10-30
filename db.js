@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')   //Paquete que permite la comunicacion a nuestra base de datos
-const config = require ('./config')
+const config = require ('./config')  //para heroku
 const conectDB = () => {
     /* METODO CONNECT EM MONGOOSE => PERMITE CONECTARME A UNA BASE DE DATOS
      tiene unas opciones que son:
     useNewUrlParser: Analizar la informacion que se le quiere enviar a mongoDB.
     useUniFiedTopology: Escuchar los llamados que hacemos a mongoDB y monitorea que es lo que pasa.*/
-    mongoose.connect(config.mongoDB,
+    mongoose.connect(config.mongoDB,  //la variable de conexion en heroku
      { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
         if(error){
             console.log('Error: ', error)

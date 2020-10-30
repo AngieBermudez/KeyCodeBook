@@ -4,23 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node index",
+  "dev": "nodemon index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jwt-simple": "^0.5.6",
-    "moment": "^2.29.1",
-    "mongoose": "^5.10.9",
-    "nodemon": "^2.0.6"
+  "body-parser": "^1.19.0",
+  "cors": "^2.8.5",
+  "express": "^4.17.1",
+  "jwt-simple": "^0.5.6",
+  "moment": "^2.29.1",
+  "mongoose": "^5.10.9"    
   },
   "devDependencies":{
-    "nodemo": "2.0.6"
+  "nodemon": "^2.0.6"
   }
 }
